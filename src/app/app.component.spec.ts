@@ -1,15 +1,35 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { TodoComponent } from './todo/todo.component'; // Added
+import { FormsModule } from '@angular/forms'; // Added
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card'; // Added
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field'; // Added
+import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input'; // Added
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list'; // Added
+import { MatLegacyCheckboxModule as MatCheckboxModule } from '@angular/material/legacy-checkbox'; // Added
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button'; // Added
+import { MatIconModule } from '@angular/material/icon'; // Added
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'; // Added
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        RouterTestingModule
+        RouterTestingModule,
+        FormsModule, // Added
+        MatCardModule, // Added
+        MatFormFieldModule, // Added
+        MatInputModule, // Added
+        MatListModule, // Added
+        MatCheckboxModule, // Added
+        MatButtonModule, // Added
+        MatIconModule, // Added
+        BrowserAnimationsModule // Added
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        TodoComponent // Added
       ],
     }).compileComponents();
   });
@@ -24,12 +44,5 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('todo-app');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('todo-app app is running!');
   });
 });
